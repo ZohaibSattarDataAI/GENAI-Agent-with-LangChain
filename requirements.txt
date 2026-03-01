@@ -14,5 +14,5 @@ pypdf
 unstructured
 python-docx
 beautifulsoup4
-aiohttp
-httpx
+
+
