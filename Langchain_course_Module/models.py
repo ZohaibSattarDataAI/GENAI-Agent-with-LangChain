@@ -1,11 +1,12 @@
-# from langchain_openai import OpenAI
-from langchain_ollama import OllamaLLM
-from dotenv import load_dotenv
+from langchain_ollama import ChatOllama
 
-load_dotenv()
+llm = ChatOllama(
+    model="qwen3:8b",
+    temperature=0
+)
 
-llm = OllamaLLM(model='llama3', temperature=0.7, max_tokens=150)
+response = llm.invoke(
+    "Write a Python function to reverse a string."
+)
 
-result=llm.invoke("Write a short poem about the beauty of nature.")
-
-print(result)
+print(response.content)
