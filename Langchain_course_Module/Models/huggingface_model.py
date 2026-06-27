@@ -17,43 +17,6 @@ llm = HuggingFaceEndpoint(
 chat = ChatHuggingFace(llm=llm)
 
 result = chat.invoke(
-
-"""Act as a Principal AI Engineer at a top AI company.
-
-Create the ultimate AI Engineer roadmap for 2026.
-
-Include:
-
-* Programming Skills
-* Mathematics
-* Machine Learning
-* Deep Learning
-* LLM Engineering
-* RAG Systems
-* Agentic AI
-* LangChain
-* LangGraph
-* MCP (Model Context Protocol)
-* Fine-Tuning
-* AI Evaluation
-* Vector Databases
-* AI Deployment
-* FastAPI
-* Docker
-* Kubernetes
-* Cloud Platforms
-* MLOps
-* AI System Design
-
-For each skill provide:
-
-* Learning resources
-* Projects
-* Interview questions
-* Industry use cases
-* Estimated learning time
-
-Finally create a job-ready roadmap from Beginner to AI Engineer.
-"""
+"What is the capital of pakistan?"
 )
 print(result.content)
