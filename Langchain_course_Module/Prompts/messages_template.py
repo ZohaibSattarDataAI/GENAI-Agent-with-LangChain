@@ -1,4 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+
 
 
 #1. Static Prompt
@@ -26,4 +28,8 @@ messages = [
     HumanMessage(content="What is AI?")
 ]
 
-response = chat.invoke(messages)
+# # response = chat.invoke(messages)
+# print(response)
+
+
+

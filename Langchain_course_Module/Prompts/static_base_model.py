@@ -16,6 +16,7 @@ llm = HuggingFaceEndpoint(
 
 chat = ChatHuggingFace(llm=llm)
 
+# Fixed Prompt
 prompt = ChatPromptTemplate.from_template(
     "Explain Artificial Intelligence in simple words."
 )
