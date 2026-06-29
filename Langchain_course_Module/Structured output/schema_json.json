@@ -1,0 +1,55 @@
+{
+    "title": "SentimentAnalysis",
+    "description": "Extract sentiment analysis information from a customer review.",
+    "type": "object",
+    "properties": {
+        "overall_sentiment": {
+            "type": "string",
+            "description": "Overall sentiment of the review (Positive, Negative, or Neutral)"
+        },
+        "confidence_score": {
+            "type": "string",
+            "description": "Confidence score in percentage"
+        },
+        "positive_points": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of positive points mentioned in the review"
+        },
+        "negative_points": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of negative points mentioned in the review"
+        },
+        "final_summary": {
+            "type": "string",
+            "description": "Short summary of the review"
+        },
+        "suggested_improvements": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Suggestions to improve the product or service"
+        },
+        "recommendation": {
+            "type": "string",
+            "description": "Whether the product is recommended (Yes, No, or Maybe)"
+        },
+        "emotion": {
+            "type": "string",
+            "description": "Primary emotion expressed by the reviewer"
+        }
+    },
+    "required": [
+        "overall_sentiment",
+        "confidence_score",
+        "positive_points",
+        "negative_points",
+        "final_summary"
+    ]
+}
