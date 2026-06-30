@@ -29,7 +29,7 @@ chain = template | model | parser
 
 result = chain.invoke(
     {
-        "question": "Tell me top 3 programming languages for AI , Datasceince or for ethical hacker"
+        "question": "Tell me top 3 programming languages for AI"
     }
 )
 
