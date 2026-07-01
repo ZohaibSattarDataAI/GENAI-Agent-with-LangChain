@@ -28,7 +28,7 @@ parallel_chain = RunnableParallel(
 )
 
 result = parallel_chain.invoke({
-    "topic": "Python"
+    "topic": "Ethical Hacking"
 })
 
 print(result["explanation"])
