@@ -429,16 +429,17 @@ You can contribute by:
 
 # 👨‍💻 Author
 
-**Zohaib Sattar**
-
-📧 Email: zabizubi86@gmail.com
-
-🔗 LinkedIn:
-https://www.linkedin.com/in/zohaib-sattar
+---
+## 🙌 Author
+**Zohaib Sattar**  
+📧 Email: [zabizubi86@gmail.com](mailto:zabizubi86@gmail.com)  
+🔗 LinkedIn: [Zohaib Sattar](https://www.linkedin.com/in/zohaib-sattar)  
 
 ---
 
-# ⭐ Support
+
+
+## ⭐ Support & Share the Project
 
 If you found this project useful, consider:
 
@@ -451,6 +452,4 @@ Your support helps grow open-source AI projects and encourages future developmen
 
 ---
 
-# 📜 License
 
-This project is open-source and available under the **MIT License**.
