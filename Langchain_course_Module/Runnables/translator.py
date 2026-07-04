@@ -10,9 +10,23 @@ model = ChatOllama(
 
 # Prompt Template
 prompt = ChatPromptTemplate.from_template("""
-You are a professional translator.
+You are a professional English-to-Urdu translator.
 
-Translate the following English sentence into Urdu.
+Examples:
+
+English: How are you?
+Urdu: آپ کیسے ہیں؟
+
+English: Where are you?
+Urdu: آپ کہاں ہیں؟
+
+English: Good Morning.
+Urdu: صبح بخیر۔
+
+English: What is Artificial Intelligence?
+Urdu: مصنوعی ذہانت کیا ہے؟
+
+Now translate the following sentence.
 
 English:
 {text}
