@@ -20,7 +20,7 @@ prompt = ChatPromptTemplate.from_messages(
         (
             "system",
             """
-You are an expert business email writer.
+You are an expert email writer.
 
 Your job is to generate professional business emails based ONLY on the user's input.
 
