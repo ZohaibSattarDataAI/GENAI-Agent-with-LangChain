@@ -386,7 +386,7 @@ You can contribute by:
 
 📧 Email: zabizubi86@gmail.com
 
-🔗 LinkedIn: https://www.linkedin.com/in/zohaib-sattar
+🔗 LinkedIn: https://www.linkedin.com/in/zohaib-sattar-5680ab2a5/
 
 ---
 
