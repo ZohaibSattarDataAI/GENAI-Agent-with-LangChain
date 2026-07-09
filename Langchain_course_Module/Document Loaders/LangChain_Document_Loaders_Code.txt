@@ -1,0 +1,64 @@
+LangChain Document Loaders - Code Examples
+
+Install
+
+    pip install langchain
+    pip install langchain-community
+
+TextLoader
+
+    from langchain_community.document_loaders import TextLoader
+
+    loader = TextLoader("notes.txt")
+    documents = loader.load()
+
+    print(documents)
+    print(documents[0].page_content)
+    print(documents[0].metadata)
+
+DirectoryLoader
+
+    from langchain_community.document_loaders import DirectoryLoader, TextLoader
+
+    loader = DirectoryLoader(
+        "documents/",
+        glob="*.txt",
+        loader_cls=TextLoader
+    )
+
+    docs = loader.load()
+    print(len(docs))
+
+PyPDFLoader
+
+    from langchain_community.document_loaders import PyPDFLoader
+
+    loader = PyPDFLoader("book.pdf")
+    docs = loader.load()
+
+    print(len(docs))
+
+CSVLoader
+
+    from langchain_community.document_loaders import CSVLoader
+
+    loader = CSVLoader(file_path="employees.csv")
+    docs = loader.load()
+
+WebBaseLoader
+
+    from langchain_community.document_loaders import WebBaseLoader
+
+    loader = WebBaseLoader("https://example.com")
+    docs = loader.load()
+
+Lazy Loading
+
+    loader = TextLoader("notes.txt")
+
+    for doc in loader.lazy_load():
+        print(doc.page_content)
+
+Async Loading
+
+    docs = await loader.aload()
