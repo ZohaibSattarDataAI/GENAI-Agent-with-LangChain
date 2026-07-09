@@ -2,7 +2,8 @@ from langchain_community.document_loaders import TextLoader
 
 # Load first text file
 loader = TextLoader(
-    r"C:\Users\ZohaibSattar_Data_AI\Downloads\GENAI-Agent-with-LangChain\Langchain_course_Module\Document Loaders\LangChain_Document_Loaders_Code.txt"
+    r"C:\Users\ZohaibSattar_Data_AI\Downloads\GENAI-Agent-with-LangChain\Langchain_course_Module\Document Loaders\LangChain_Document_Loaders_Code.txt",
+    encoding='utf-8'
 )
 
 documents = loader.load()
@@ -13,7 +14,8 @@ print(documents[0].page_content)
 
 # Load second text file
 loader1 = TextLoader(
-    r"C:\Users\ZohaibSattar_Data_AI\Downloads\GENAI-Agent-with-LangChain\Langchain_course_Module\Document Loaders\sample1.txt"
+    r"C:\Users\ZohaibSattar_Data_AI\Downloads\GENAI-Agent-with-LangChain\Langchain_course_Module\Document Loaders\sample1.txt",
+    encoding='utf-8'
 )
 
 documents1 = loader1.load()
