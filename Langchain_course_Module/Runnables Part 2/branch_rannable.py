@@ -12,6 +12,6 @@ branch = RunnableBranch(
     lambda x: "Zero"
 )
 
-# print(branch.invoke(10))
+print(branch.invoke(10))
 print(branch.invoke(-5))
-# print(branch.invoke(0))
+print(branch.invoke(0))
