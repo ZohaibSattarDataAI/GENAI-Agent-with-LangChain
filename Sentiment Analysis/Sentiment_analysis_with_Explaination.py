@@ -21,7 +21,7 @@ Text:
 
 chain = prompt | model
 
-text = "The service was okay, but delivery was very late."
+text = "I got addmission in AI i got job after completing 6 semester 12 internship experience and i am very happy to share this news with you"
 
 response = chain.invoke({"text": text})
 
