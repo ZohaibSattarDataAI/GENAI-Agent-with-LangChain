@@ -33,65 +33,100 @@ model = ChatOllama(
 # ---------------------------------------
 
 prompt = ChatPromptTemplate.from_template("""
-You are a professional ATS Resume Reviewer and Senior HR Recruiter.
+You are an expert HR Recruiter and Resume Reviewer.
 
-Analyze the following resume.
+Carefully analyze the resume below.
 
-Return the response using EXACTLY the following Markdown format.
+Generate a professional report using the following format.
 
 # Resume Analysis Report
 
-## 1. Candidate Summary
-(Write 3-4 lines)
+## Candidate Summary
+Write a short professional summary.
 
-## 2. Overall Resume Score
-Give score out of 10.
+---
 
-## 3. Technical Skills
-- Skill 1
-- Skill 2
-- Skill 3
+## Overall Resume Score
+Score the resume out of 10.
 
-## 4. Soft Skills
-- Skill 1
-- Skill 2
+---
 
-## 5. Education
-- Degree
-- University
-- CGPA (if available)
+## Technical Skills
+List all technical skills.
 
-## 6. Work Experience
-List all experience.
+---
 
-## 7. Projects
-List projects.
+## Soft Skills
+List all soft skills.
 
-## 8. Certifications
+---
+
+## Education
+Extract education details.
+
+---
+
+## Work Experience
+Extract work experience.
+
+---
+
+## Projects
+List projects mentioned.
+
+---
+
+## Certifications
 List certifications.
 
-## 9. Strengths
-List strengths.
+---
 
-## 10. Weaknesses
-List weaknesses.
+## Strengths
+Mention major strengths.
 
-## 11. Missing Skills
-Mention important missing skills.
+---
 
-## 12. ATS Improvement Suggestions
-Give at least 5 suggestions.
+## Weaknesses
+Mention weaknesses.
 
-## 13. Suitable Job Roles
-Recommend 5 job roles.
+---
 
-## 14. Final Verdict
+## Missing Skills
+Mention missing skills if any.
 
-Excellent / Very Good / Good / Needs Improvement
+---
+
+## ATS Optimization Tips
+Suggest ATS improvements.
+
+---
+
+## Resume Improvement Suggestions
+Give practical suggestions.
+
+---
+
+## Suitable Job Roles
+Suggest suitable job positions.
+
+---
+
+## Final Recommendation
+
+One of:
+
+Excellent
+
+Very Good
+
+Good
+
+Needs Improvement
 
 Resume:
 
 {resume}
+
 """)
 
 # ---------------------------------------
