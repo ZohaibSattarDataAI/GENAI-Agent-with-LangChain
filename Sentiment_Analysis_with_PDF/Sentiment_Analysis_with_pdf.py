@@ -11,6 +11,7 @@ loader = PyPDFLoader(
     r"C:\Users\ZohaibSattar_Data_AI\Downloads\ZohaibSattar_Data_AI .pdf"
 )
 
+
 documents = loader.load()
 
 print(f"Total Pages: {len(documents)}")

@@ -8,7 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 # ---------------------------------------
 
 loader = PyPDFLoader(
-    r"C:\Users\ZohaibSattar_Data_AI\Downloads\ZohaibSattar_Data_AI.pdf"
+    r"C:\Users\ZohaibSattar_Data_AI\Downloads\ZohaibSattar_Data_AI .pdf"
 )
 
 documents = loader.load()
