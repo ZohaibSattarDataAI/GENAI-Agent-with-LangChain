@@ -8,7 +8,7 @@ retriever = WikipediaRetriever(
     doc_content_chars_max=1000
 )
 
-docs = retriever.invoke("Artificial Intelligence")
+docs = retriever.invoke("What is RAG in AI")
 
 # Step 2: Use Ollama Embeddings
 embeddings = OllamaEmbeddings(

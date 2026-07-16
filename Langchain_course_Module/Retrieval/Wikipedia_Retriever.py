@@ -11,7 +11,7 @@ def main():
         )
 
         # User Query
-        query = "Artificial Intelligence"
+        query = "What is RAG in AI"
 
         print(f"\nSearching Wikipedia for: {query}\n")
 
