@@ -2,17 +2,15 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 video_id = "cFnqX6V21h4"
 
-try:
-    transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
 
-    print("Available transcripts:")
-    for transcript in transcript_list:
-        print(
-            transcript.language,
-            transcript.language_code,
-            transcript.is_generated
-        )
+for t in transcript_list:
+    print("Fetching:", t.language)
 
-except Exception as e:
-    print(type(e).__name__)
-    print(e)
+    try:
+        transcript = t.fetch()
+        print("Success")
+        print(transcript[:3])
+    except Exception as e:
+        print(type(e).__name__)
+        print(e)

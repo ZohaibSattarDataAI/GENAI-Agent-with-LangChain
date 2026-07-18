@@ -8,7 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 import sys
 
 # =====================================================
-# Load Local LLM
+# Local LLM
 # =====================================================
 
 llm = ChatOllama(
@@ -21,7 +21,7 @@ embeddings = OllamaEmbeddings(
 )
 
 # =====================================================
-# YouTube Video ID
+# Video ID
 # =====================================================
 
 video_id = "cFnqX6V21h4"
@@ -30,24 +30,52 @@ video_id = "cFnqX6V21h4"
 # Load Transcript
 # =====================================================
 
-print("Loading transcript...\n")
+print("\nLoading transcript...\n")
 
 try:
-    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+
+    transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+
+    transcript = None
+
+    # Try manual English transcript
+    try:
+        transcript = transcript_list.find_transcript(["en"]).fetch()
+        print("English transcript found.")
+    except:
+        pass
+
+    # Try auto-generated English transcript
+    if transcript is None:
+        try:
+            transcript = transcript_list.find_generated_transcript(["en"]).fetch()
+            print("Auto-generated English transcript found.")
+        except:
+            pass
+
+    if transcript is None:
+        print("No English transcript available.")
+        sys.exit()
+
+    if len(transcript) == 0:
+        print("Transcript is empty.")
+        sys.exit()
 
     text = " ".join(
-        item["text"] for item in transcript
+        item["text"]
+        for item in transcript
     )
 
     documents = [
         Document(page_content=text)
     ]
 
-    print("Transcript Loaded Successfully!")
-    print(f"Total Transcript Segments: {len(transcript)}\n")
+    print(f"Transcript Loaded Successfully!")
+    print(f"Transcript Segments : {len(transcript)}")
 
 except Exception as e:
-    print("Failed to load transcript.\n")
+
+    print("\nFailed to load transcript!")
     print(type(e).__name__)
     print(e)
     sys.exit()
@@ -63,10 +91,10 @@ splitter = RecursiveCharacterTextSplitter(
 
 chunks = splitter.split_documents(documents)
 
-print(f"Total Chunks: {len(chunks)}")
+print(f"\nTotal Chunks : {len(chunks)}")
 
 # =====================================================
-# Create Vector Store
+# Vector Store
 # =====================================================
 
 print("\nCreating Vector Store...")
@@ -80,19 +108,18 @@ retriever = vectorstore.as_retriever(
     search_kwargs={"k": 4}
 )
 
-print("Vector Store Ready!\n")
+print("Vector Store Ready!")
 
 # =====================================================
 # Prompt
 # =====================================================
 
-prompt = ChatPromptTemplate.from_template(
-"""
+prompt = ChatPromptTemplate.from_template("""
 You are a helpful AI assistant.
 
-Answer ONLY using the provided YouTube transcript.
+Answer ONLY using the provided transcript.
 
-If the answer is not available in the transcript, reply exactly:
+If the answer is not found in the transcript, reply exactly:
 
 "I couldn't find that information in the video."
 
@@ -101,8 +128,7 @@ Transcript:
 
 Question:
 {question}
-"""
-)
+""")
 
 chain = prompt | llm | StrOutputParser()
 
@@ -110,30 +136,40 @@ chain = prompt | llm | StrOutputParser()
 # Chat Loop
 # =====================================================
 
-print("=" * 60)
-print("      Chat with YouTube Video")
+print("\n" + "=" * 60)
+print("        YouTube RAG Chatbot")
 print("=" * 60)
 
-print("\nYou can ask questions like:")
-print("- What is this video about?")
-print("- Summarize the video.")
-print("- Explain the main topic.")
-print("- What examples were discussed?")
-print("- Who is the speaker?")
-print("\nType 'exit' to quit.\n")
+print("""
+Example Questions
+
+- What is this video about?
+- Summarize the video.
+- Explain the main topic.
+- What examples were discussed?
+- Who is the speaker?
+- What is the conclusion?
+- Give me important points.
+
+Type 'exit' to quit.
+""")
 
 while True:
 
-    question = input("Your Question: ")
+    question = input("\nYour Question: ").strip()
 
     if question.lower() == "exit":
         print("\nGoodbye!")
         break
 
+    if question == "":
+        continue
+
     docs = retriever.invoke(question)
 
     context = "\n\n".join(
-        doc.page_content for doc in docs
+        doc.page_content
+        for doc in docs
     )
 
     answer = chain.invoke(
@@ -145,4 +181,4 @@ while True:
 
     print("\nAnswer:\n")
     print(answer)
-    print("\n" + "-" * 70 + "\n")
+    print("\n" + "-" * 70)
