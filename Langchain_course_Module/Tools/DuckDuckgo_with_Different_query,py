@@ -1,0 +1,9 @@
+from langchain_community.tools import DuckDuckGoSearchRun
+
+search = DuckDuckGoSearchRun()
+
+query = "Who won the FIFA World Cup 2022?"
+
+response = search.invoke(query)
+
+print(response)
