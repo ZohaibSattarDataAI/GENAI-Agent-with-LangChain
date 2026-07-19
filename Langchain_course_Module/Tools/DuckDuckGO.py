@@ -1,9 +1,9 @@
 from langchain_community.tools import DuckDuckGoSearchRun
 
-# Create the search tool
+# Create search tool
 search = DuckDuckGoSearchRun()
 
-# Search query
-result = search.invoke("Latest AI news")
+# Search
+result = search.invoke("Python programming")
 
 print(result)
