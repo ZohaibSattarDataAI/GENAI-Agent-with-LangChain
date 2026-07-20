@@ -111,6 +111,7 @@ Each project reflects **real production use cases**, not just demos.
 
 ---
 ## 🙌 Author
+
 **Zohaib Sattar**  
 📧 Email: [zabizubi86@gmail.com](mailto:zabizubi86@gmail.com)  
 🔗 LinkedIn: [Zohaib Sattar](https://www.linkedin.com/in/zohaib-sattar)  
