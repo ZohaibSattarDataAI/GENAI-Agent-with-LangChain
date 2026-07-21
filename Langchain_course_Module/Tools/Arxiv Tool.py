@@ -3,4 +3,6 @@ from langchain_community.utilities import ArxivAPIWrapper
 
 arxiv = ArxivQueryRun(api_wrapper=ArxivAPIWrapper())
 
-print(arxiv.invoke("Large Language Models"))
+result = arxiv.invoke("Large Language Models")
+
+print(result)
