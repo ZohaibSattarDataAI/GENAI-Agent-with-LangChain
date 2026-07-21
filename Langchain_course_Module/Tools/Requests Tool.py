@@ -1,5 +1,15 @@
 from langchain_community.tools import RequestsGetTool
+from langchain_community.utilities.requests import TextRequestsWrapper
 
-tool = RequestsGetTool()
+# Create a requests wrapper
+requests_wrapper = TextRequestsWrapper()
 
-print(tool.invoke("https://github.com/ZohaibSattarDataAI"))
+# Enable dangerous requests explicitly
+tool = RequestsGetTool(
+    requests_wrapper=requests_wrapper,
+    allow_dangerous_requests=True
+)
+
+result = tool.invoke("https://github.com/ZohaibSattarDataAI")
+
+print(result)
